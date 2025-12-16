@@ -16,6 +16,12 @@ import PopularPage from './pages/popularPage';
 import TopRatedPage from './pages/topRatedPage';
 import MovieCreditsPage from './pages/creditsPage';
 import PersonPage from './pages/personPage';
+import LoginPage from "./pages/loginPage";
+import ProfilePage from "./pages/profilePage";
+import StartPage from "./pages/startPage";  
+import SignupPage from "./pages/signupPage";
+import ProtectedRoutes from "./protectedRoutes";
+import AuthContextProvider from "./contexts/authContext";
 
 
 const queryClient = new QueryClient({
@@ -32,9 +38,17 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      <AuthContextProvider>
         <SiteHeader />
         <MoviesContextProvider>
           <Routes>
+            <Route path="/" element={ <StartPage /> } />
+            <Route path="/login" element={ <LoginPage /> } />
+            <Route path="/profile" element={ <ProfilePage /> } />
+            <Route path="/signup" element={ <SignupPage /> } />
+            
+            <Route element={<ProtectedRoutes />}>
+            <Route path="/home" element={<HomePage />} />
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
@@ -44,12 +58,14 @@ const App = () => {
             <Route path="/movies/top-rated" element={ <TopRatedPage /> } />
             <Route path="/credits/:id" element={ <MovieCreditsPage /> } />
             <Route path="/person/:id" element={ <PersonPage /> } />
-            <Route path="/" element={<HomePage />} />
-            <Route path="*" element={ <Navigate to="/" /> } />
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+            </Route>
+            <Route path="*" element={ <Navigate to="/" /> } />
+
 
           </Routes>
         </MoviesContextProvider>
+        </AuthContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

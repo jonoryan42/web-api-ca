@@ -47,6 +47,7 @@ async function registerUser(req, res) {
    
 }
 
+
 async function authenticateUser(req, res) {
     const user = await User.findByUserName(req.body.username);
     if (!user) {

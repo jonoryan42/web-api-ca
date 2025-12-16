@@ -16,21 +16,24 @@ UserSchema.statics.findByUserName = function (username) {
   return this.findOne({ username: username });
 };
 
-UserSchema.pre('save', async function(next) {
+// I removed 'next' from this
+// UserSchema.pre('save', async function(next) {
+UserSchema.pre('save', async function() {
   const saltRounds = 10; // You can adjust the number of salt rounds
   //const user = this;
   if (this.isModified('password') || this.isNew) {
-    try {
+    // try {
       const hash = await bcrypt.hash(this.password, saltRounds);
       this.password = hash;
-      next();
-  } catch (error) {
-     next(error);
   }
+      // next();
+  // } catch (error) {
+  //    next(error);
+  // }
 
-  } else {
-      next();
-  }
+  // } else {
+  //     next();
+  // }
 });
 
 
