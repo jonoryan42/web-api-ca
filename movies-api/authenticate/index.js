@@ -17,7 +17,6 @@ const authenticate = async (request, response, next) => {
         if (!user) {
             throw new Error('User not found');
         }
-        // Optionally attach the user to the request for further use
         request.user = user; 
         next();
     } catch(err) {

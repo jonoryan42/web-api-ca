@@ -4,15 +4,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { MoviesContext } from "../../contexts/moviesContext";
 
 const RemoveFromMustWatchIcon = ({ movie }) => {
-  const context = useContext(MoviesContext);
+  const { removeFromMustWatches } = useContext(MoviesContext);
 
   const handleRemoveFromMustWatch = (e) => {
     e.preventDefault();
-    context.removeFromMustWatch(movie);
+    removeFromMustWatches(movie.id);
   };
+
   return (
     <IconButton
-      aria-label="Remove From Must Watch"
+      aria-label="Remove from Must Watch"
       onClick={handleRemoveFromMustWatch}
     >
       <DeleteIcon color="primary" fontSize="large" />

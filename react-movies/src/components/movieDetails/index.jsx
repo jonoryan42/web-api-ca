@@ -41,9 +41,10 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
       <Typography variant="h6" component="p">
         {movie.overview}
-        <Divider sx={{my: 3, borderColor: "grey"}} ></Divider>
 
       </Typography>
+       <Divider sx={{my: 3, borderColor: "grey"}} ></Divider>
+
       {/* </Paper> */}
 
       {/* <Paper 
