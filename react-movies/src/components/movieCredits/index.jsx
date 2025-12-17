@@ -39,7 +39,7 @@ const MovieCredits = ({ credits }) => {  // Don't miss this!
 
        <Typography variant="p" component="p" textAlign={"center"} sx={{ listStyleType: "none", paddingLeft: 0, marginLeft: 0 }}>
         {credits.crew?.filter((member) => member.job === "Director").map((c) => (
-            <li key={c.id}>
+            <li key={c.credit_id}>
               <Link to={`/person/${c.id}`}
               style={{ fontWeight: "bold", textDecoration: "none", color: "black" }}>{c.name}</Link>
             </li>
@@ -54,7 +54,7 @@ const MovieCredits = ({ credits }) => {  // Don't miss this!
       
       <Typography variant="p" component="ul" textAlign={"center"} sx={{ listStyleType: "none", paddingLeft: 0, marginLeft: 0 }}>
         {credits.cast?.map((c) => (
-            <li key={c.id}>
+            <li key={c.credit_id}>
               <Link to={`/person/${c.id}`}
               style={{ fontWeight: "bold", textDecoration: "none", color: "black" }}>{c.name}</Link> as {c.character}
             </li>
@@ -69,7 +69,7 @@ const MovieCredits = ({ credits }) => {  // Don't miss this!
 
       <Typography variant="p" component="ul" textAlign={"center"} sx={{ listStyleType: "none", paddingLeft: 0, marginLeft: 0 }}>
         {credits.crew?.map((c) => (
-            <li key={c.id}>
+            <li key={c.credit_id}>
               <Link to={`/person/${c.id}`}
               style={{ fontWeight: "bold", textDecoration: "none", color: "black" }}>{c.name}</Link>
             </li>

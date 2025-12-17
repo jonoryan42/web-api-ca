@@ -26,10 +26,10 @@ const LoginPage = () => {
         <>
             <h2>Login page</h2>
             <p>You must log in to view Movies. </p>
-            <input id="username" placeholder="user name" onChange={e => {
+            <input id="username" placeholder="Username" onChange={e => {
                 setUserName(e.target.value);
             }}></input><br />
-            <input id="password" type="password" placeholder="password" onChange={e => {
+            <input id="password" type="password" placeholder="Password" onChange={e => {
                 setPassword(e.target.value);
             }}></input><br />
             {/* Login web form  */}
