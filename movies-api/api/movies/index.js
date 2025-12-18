@@ -76,7 +76,7 @@ router.get("/popular", asyncHandler(async (req, res) => {
 );
 
 //Top-Rated
-router.get("/toprated", asyncHandler(async (req, res) => {
+router.get("/top-rated", asyncHandler(async (req, res) => {
     const topRated = await getTopRatedMovies();
     res.status(200).json(topRated);
   })
