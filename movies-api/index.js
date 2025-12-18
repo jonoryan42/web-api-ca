@@ -5,7 +5,6 @@ import './db';
 // other imports
 import cors from 'cors';
 import usersRouter from './api/users';
-import authenticate from './authenticate';
 import moviesRouter from './api/movies';  
 
 
@@ -18,8 +17,7 @@ const errHandler = (err, req, res, next) => {
     return res.status(500).send(`Something went wrong!`);
   }
 
-  res.status(500).send(`Hey!! You caught the error 👍👍. Here's the details:
-${err.stack}`);
+  res.status(500).send(`Hey!! You caught the error 👍👍. Here's the details: ${err.stack}`);
 };
 
 const app = express();
