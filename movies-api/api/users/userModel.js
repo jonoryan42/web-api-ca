@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   username: { type: String, unique: true, required: true},
   password: {type: String, required: true },
-  //Adding favorites to schema
+  //Adding favorites, mustwatches to schema
   favorites: { type: [Number], default: [] },
   mustWatches: { type: [Number], default: [] },
 });
